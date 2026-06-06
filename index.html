@@ -144,6 +144,206 @@
   </div>
 </div></section>
 
+<section id="diagrams">
+<style>
+  #diagrams .diag-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
+  #diagrams .diag-block{background:var(--ground-2);border:1px solid var(--line);border-radius:12px;padding:22px 20px 18px}
+  #diagrams .diag-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px;font-family:'Spectral'}
+  @media(max-width:760px){#diagrams .diag-pair{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <div class="kicker">How it comes to be &middot; where it lives</div>
+  <h2>Two views of the engine.</h2>
+  <p class="body">The first diagram traces how a single Forge composition unfolds — from the three inputs through the pliable intermediate representation to a rendered skill on any platform. The second shows where Forge sits in the portfolio: which products it draws from, what surfaces it renders to, and the Intent loop that governs it throughout.</p>
+
+  <div class="diag-pair">
+
+    <!-- DIAGRAM 1: FLOW — How it comes to be -->
+    <div class="diag-block">
+      <div class="diag-label">How it comes to be</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Flow diagram: how a Forge composition works">
+        <defs>
+          <linearGradient id="ff-molten-steel" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#E8772B"/>
+            <stop offset="100%" stop-color="#7E8A98"/>
+          </linearGradient>
+          <linearGradient id="ff-brass-molten" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A45C"/>
+            <stop offset="100%" stop-color="#E8772B"/>
+          </linearGradient>
+          <marker id="farr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.8"/>
+          </marker>
+          <marker id="farr-m" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.8"/>
+          </marker>
+          <marker id="farr-s" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#7E8A98" opacity="0.75"/>
+          </marker>
+        </defs>
+
+        <!-- Three input boxes stacked on left -->
+        <!-- Input 1: Methodology -->
+        <rect x="8" y="48" width="88" height="36" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.3"/>
+        <text x="52" y="62" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9.5" fill="#ECE3D4">Methodology</text>
+        <text x="52" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">source of truth</text>
+
+        <!-- Input 2: Persona -->
+        <rect x="8" y="138" width="88" height="36" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.3"/>
+        <text x="52" y="152" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9.5" fill="#ECE3D4">Persona</text>
+        <text x="52" y="164" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">from Cast</text>
+
+        <!-- Input 3: Platform -->
+        <rect x="8" y="228" width="88" height="36" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.3"/>
+        <text x="52" y="242" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9.5" fill="#ECE3D4">Platform</text>
+        <text x="52" y="254" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">target surface</text>
+
+        <!-- × labels between inputs -->
+        <text x="6" y="126" font-family="'Playfair Display',Georgia,serif" font-size="16" fill="#E8772B" font-weight="700">&times;</text>
+        <text x="6" y="218" font-family="'Playfair Display',Georgia,serif" font-size="16" fill="#E8772B" font-weight="700">&times;</text>
+
+        <!-- Convergence arrows to IR -->
+        <line x1="96" y1="66" x2="166" y2="138" stroke="#C9A45C" stroke-width="1.2" stroke-opacity="0.8" marker-end="url(#farr)"/>
+        <line x1="96" y1="156" x2="166" y2="156" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#farr)"/>
+        <line x1="96" y1="246" x2="166" y2="174" stroke="#C9A45C" stroke-width="1.2" stroke-opacity="0.8" marker-end="url(#farr)"/>
+
+        <!-- IR box: Pliable IR -->
+        <rect x="168" y="124" width="90" height="64" rx="9" fill="#211a13" stroke="#E8772B" stroke-width="1.7"/>
+        <text x="213" y="144" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#ECE3D4">Pliable</text>
+        <text x="213" y="158" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#ECE3D4">IR</text>
+        <text x="213" y="180" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">intermediate rep</text>
+
+        <!-- Arrow IR → render -->
+        <line x1="258" y1="156" x2="288" y2="156" stroke="#E8772B" stroke-width="1.5" marker-end="url(#farr-m)"/>
+
+        <!-- Render engine box -->
+        <rect x="290" y="130" width="84" height="52" rx="8" fill="#2b2219" stroke="#E8772B" stroke-width="1.3"/>
+        <text x="332" y="151" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9.5" fill="#ECE3D4">render</text>
+        <text x="332" y="164" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">engine</text>
+
+        <!-- Three output arrows fanning out right -->
+        <line x1="374" y1="148" x2="396" y2="96" stroke="#7E8A98" stroke-width="1.1" stroke-opacity="0.85" marker-end="url(#farr-s)"/>
+        <line x1="374" y1="156" x2="396" y2="156" stroke="#E8772B" stroke-width="1.4" marker-end="url(#farr-m)"/>
+        <line x1="374" y1="164" x2="396" y2="216" stroke="#7E8A98" stroke-width="1.1" stroke-opacity="0.85" marker-end="url(#farr-s)"/>
+
+        <!-- Output boxes -->
+        <!-- Claude Code skill -->
+        <rect x="398" y="76" width="76" height="40" rx="7" fill="#17120e" stroke="#7E8A98" stroke-width="1.1"/>
+        <text x="436" y="91" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#AAB4C0">Claude Code</text>
+        <text x="436" y="103" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#7E8A98">SKILL.md</text>
+
+        <!-- Copilot -->
+        <rect x="398" y="136" width="76" height="40" rx="7" fill="#17120e" stroke="#E8772B" stroke-width="1.3"/>
+        <text x="436" y="151" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">Copilot</text>
+        <text x="436" y="163" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#E8772B">agent</text>
+
+        <!-- System prompt -->
+        <rect x="398" y="196" width="76" height="40" rx="7" fill="#17120e" stroke="#7E8A98" stroke-width="1.1"/>
+        <text x="436" y="211" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#AAB4C0">system</text>
+        <text x="436" y="223" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#7E8A98">prompt</text>
+
+        <!-- "Deployed Skill" badge below IR area -->
+        <rect x="168" y="202" width="90" height="20" rx="5" fill="rgba(232,119,43,0.10)" stroke="#9A7F4E" stroke-width="0.8"/>
+        <text x="213" y="215" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#C9A45C">= Deployed Skill</text>
+
+        <!-- Bottom label -->
+        <text x="240" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Methodology &times; Persona &times; Platform &rarr; Pliable IR &rarr; rendered to any surface</text>
+      </svg>
+    </div>
+
+    <!-- DIAGRAM 2: ARCHITECTURE — Where it lives -->
+    <div class="diag-block">
+      <div class="diag-label">Where it lives</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture diagram: Forge position in the portfolio">
+        <defs>
+          <linearGradient id="ag-forge" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8772B" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#2b2219" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="ag-cast-f" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A45C" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#211a13" stop-opacity="0.8"/>
+          </linearGradient>
+          <marker id="aarr-f" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.8"/>
+          </marker>
+          <marker id="aarr-fm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.8"/>
+          </marker>
+          <marker id="aarr-fs" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#7E8A98" opacity="0.75"/>
+          </marker>
+        </defs>
+
+        <!-- Intent loop veil — faint background rectangle -->
+        <rect x="10" y="14" width="460" height="254" rx="12" fill="none" stroke="#3a2f23" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="26" y="28" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#3a2f23" font-style="italic">Intent loop — Notice &middot; Spec &middot; Execute &middot; Observe</text>
+
+        <!-- Cast box — upper left -->
+        <rect x="24" y="46" width="96" height="100" rx="10" fill="url(#ag-cast-f)" stroke="#C9A45C" stroke-width="1.3"/>
+        <text x="72" y="70" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="13" font-weight="700" fill="#C9A45C">Cast</text>
+        <line x1="40" y1="78" x2="104" y2="78" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="72" y="93" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">registry</text>
+        <text x="72" y="107" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">corpus</text>
+        <text x="72" y="136" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F" font-style="italic">persona identity</text>
+
+        <!-- Methodology box — lower left -->
+        <rect x="24" y="162" width="96" height="78" rx="10" fill="#211a13" stroke="#9A7F4E" stroke-width="1.1"/>
+        <text x="72" y="183" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="12" font-weight="700" fill="#C9A45C">Method</text>
+        <line x1="40" y1="191" x2="104" y2="191" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="72" y="207" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">frameworks</text>
+        <text x="72" y="220" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">IP library</text>
+        <text x="72" y="233" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F" font-style="italic">source layer</text>
+
+        <!-- Forge box — centre -->
+        <rect x="166" y="68" width="140" height="140" rx="12" fill="url(#ag-forge)" stroke="#E8772B" stroke-width="2"/>
+        <text x="236" y="98" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="17" font-weight="800" fill="#ECE3D4">Forge</text>
+        <line x1="184" y1="108" x2="288" y2="108" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="236" y="124" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">Composition</text>
+        <text x="236" y="137" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">engine</text>
+        <!-- source separation badge -->
+        <rect x="185" y="153" width="102" height="16" rx="5" fill="rgba(232,119,43,0.10)" stroke="#9A7F4E" stroke-width="0.8"/>
+        <text x="236" y="164" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#C9A45C">source separation law</text>
+        <!-- IR label -->
+        <text x="236" y="192" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">pliable IR</text>
+
+        <!-- Cast → Forge (reads persona identity) -->
+        <line x1="120" y1="90" x2="164" y2="120" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#aarr-f)"/>
+        <text x="135" y="98" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">reads</text>
+
+        <!-- Methodology → Forge (reads method) -->
+        <line x1="120" y1="196" x2="164" y2="170" stroke="#9A7F4E" stroke-width="1.2" marker-end="url(#aarr-f)"/>
+        <text x="135" y="190" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">reads</text>
+
+        <!-- Three output arrows fanning right -->
+        <line x1="306" y1="118" x2="354" y2="82" stroke="#E8772B" stroke-width="1.2" stroke-opacity="0.85" marker-end="url(#aarr-fm)"/>
+        <line x1="306" y1="138" x2="354" y2="138" stroke="#E8772B" stroke-width="1.5" marker-end="url(#aarr-fm)"/>
+        <line x1="306" y1="158" x2="354" y2="194" stroke="#7E8A98" stroke-width="1.2" stroke-opacity="0.85" marker-end="url(#aarr-fs)"/>
+
+        <!-- Output surface boxes — right -->
+        <rect x="356" y="62" width="96" height="38" rx="7" fill="#17120e" stroke="#E8772B" stroke-width="1.2"/>
+        <text x="404" y="78" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">Claude Code</text>
+        <text x="404" y="91" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#E8772B">skill · SKILL.md</text>
+
+        <rect x="356" y="118" width="96" height="38" rx="7" fill="#17120e" stroke="#E8772B" stroke-width="1.4"/>
+        <text x="404" y="134" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">Copilot</text>
+        <text x="404" y="147" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#E8772B">declarative agent</text>
+
+        <rect x="356" y="174" width="96" height="38" rx="7" fill="#17120e" stroke="#7E8A98" stroke-width="1.2"/>
+        <text x="404" y="190" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#AAB4C0">system prompt</text>
+        <text x="404" y="203" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#7E8A98">raw / workshop</text>
+
+        <!-- Intent loop corner cycle arc -->
+        <path d="M460,40 Q470,149 460,258" fill="none" stroke="#3a2f23" stroke-width="1" stroke-dasharray="4,5" marker-end="url(#aarr-f)"/>
+
+        <!-- Bottom label -->
+        <text x="237" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Cast + Method &rarr; Forge (composition) &rarr; Claude Code &middot; Copilot &middot; system prompt</text>
+      </svg>
+    </div>
+
+  </div>
+</div></section>
+
 <section id="veil" class="veil-section"><div class="wrap">
   <div class="kicker">Behind the veil</div>
   <h2>How Forge was forged.</h2>
