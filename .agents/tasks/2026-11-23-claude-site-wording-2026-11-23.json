@@ -1,0 +1,15 @@
+{
+  "id": "2026-11-23-claude-site-wording-2026-11-23",
+  "provider": "claude",
+  "status": "complete",
+  "branch": "agent/claude/2026-11-23-site-wording-2026-11-23",
+  "worktree": "../forge-site-wt-2026-11-23-site-wording-2026-11-23",
+  "base_commit": "18dc097",
+  "objective": "",
+  "owned_paths": [
+    "index.html"
+  ],
+  "started": "2026-11-23T15:35:27-05:00",
+  "handoff": ".agents/handoffs/2026-11-23-claude-site-wording-2026-11-23.md",
+  "landed": "2026-11-23T18:36:51-05:00"
+}
